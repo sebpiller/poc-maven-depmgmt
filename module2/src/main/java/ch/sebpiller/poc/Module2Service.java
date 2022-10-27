@@ -14,6 +14,6 @@ public class Module2Service {
         log.info("It works: {}", CharEncoding.isSupported("UTF-8"));
 
         log.info("I will call something that only exist in the newest version");
-        log.info("It works: {}", StringUtils.compareIgnoreCase("ABC", "abc") == 0);
+        log.info("It works: {}", StringUtils.compareIgnoreCase("ABC", "abc") == 0); // boom, compile error now. better
     }
 }
