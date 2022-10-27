@@ -68,6 +68,26 @@
                 <scope>test</scope>
             </dependency>
 
+            <!--
+            By declaring the dependency commons-lang3 and its version here, and removing all version tags from all of
+            the submodules its version once and for all.
+
+            Basically, you have turned a *runtime-time* error during the execution of the FINAL artifact (which
+            aggregates all transitives dependencies of all referenced modules),
+            into a *compile-time* error on the DEPENDENCY artifact, which is SO MUCH better that the door of heaven are
+            wide open to you now.
+
+            Yes, the parent pom is now a little bigger. But there is no such bad practice called "fat-pom"
+            anywhere on the internet, and you can control and centralize all the versions of all dependencies in a
+            single place. Having a clean, predictable, understandable set of dependencies is so much
+            better than depending on some transitive dependencies resolved deep in the dependency tree.
+            -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.0</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
